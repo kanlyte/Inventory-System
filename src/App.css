@@ -1,0 +1,129 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap");
+
+:root {
+  --nav-width: 68px;
+  --header-height: 45px;
+
+  --font-family: "Lato", sans-serif;
+  --dark-blue: #0a1930;
+  --light-blue: #1f93ff;
+
+  --color-white: #fff;
+  --color-dark: #333;
+
+  --color-grey: #eee;
+  --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+
+  --color-purple: #9d0191;
+  --color-orange: #ff7722;
+
+  --color-primary: #007bff;
+  --color-success: #28a745;
+  --color-danger: orangered;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+body {
+  font-family: var(--font-family);
+  background: #eee;
+  font-size: 14px;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+._h_tog {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+main {
+  margin-top: 30px;
+  padding: 2rem 1rem;
+  min-height: calc(100vh-90px);
+}
+.sideBar-ctr {
+  width: 180px;
+  position: fixed;
+  left: 0;
+  top: 10;
+  height: 100%;
+  z-index: 25;
+}
+.sidebar {
+  width: 90%;
+  height: 98%;
+  margin: 5px auto;
+  position: relative;
+  border-radius: 5px;
+}
+.--span {
+  padding-right: 1rem;
+  cursor: pointer;
+}
+.--bars {
+  display: none;
+}
+
+/*close on small screen*/
+.close-on-sm {
+  color: #fff;
+  font-size: 24px;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  display: none;
+  pointer-events: none;
+}
+/*close on small screen*/
+#nav-toggle {
+  display: none;
+}
+#nav-toggle:checked + .sideBar-ctr {
+  width: 180px;
+}
+#nav-toggle:checked + .sidebar {
+  width: 70px;
+  margin: auto;
+}
+
+#nav-toggle:checked ~ .main-content {
+  margin-left: 180px;
+}
+.main-content {
+  margin-left: 180px;
+  transition: margin-left 500ms;
+}
+
+@media only screen and (max-width: 768px) {
+  .close-on-sm {
+    color: #fff;
+    font-size: 30px;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    display: block;
+    pointer-events: all;
+  }
+  .--bars {
+    display: block;
+  }
+  .sideBar-ctr {
+    left: -100% !important;
+    transition: all 400ms;
+  }
+  #nav-toggle:not(:checked) + .sideBar-ctr {
+    left: 0 !important;
+    width: 180px;
+  }
+  .main-content {
+    width: 100%;
+    margin-left: 0rem !important;
+  }
+}
