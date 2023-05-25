@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
-import Header from "psl/src/components/header/Header";
-import "psl/src/routes/Design/Home.css";
+import "../Design/Home.css";
 import { Link } from "react-router-dom";
-import Footer from "psl/src/components/footer/Footer";
 import styled from "styled-components";
-import Nav from "psl/src/components/nav";
-import SideBar from "psl/src/components/SideBar";
+import Header from "../../components/header/Header";
+import SideBar from "../../components/SideBar";
 
 const Dashboard = () => {
   return (

@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import SideBarList from "psl/src/components/SideBarList";
 import Product from "@mui/icons-material/ProductionQuantityLimits";
 import ArticleIcon from "@mui/icons-material/Article";
 import PeopleAltIcon from "@mui/icons-material/PeopleAlt";
 import { Link } from "react-router-dom";
+import SideBarList from "./SideBarList";
 
 function SideBar(props) {
   return (
