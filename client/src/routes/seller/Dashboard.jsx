@@ -10,7 +10,7 @@ const Dashboard = () => {
     <>
       <Header />
       <input type="checkbox" id="nav-toggle" defaultChecked />
-      <SideBar />
+      <SideBar active="home" />
       <div className="main-content">
         <main>
           <div className="cards">

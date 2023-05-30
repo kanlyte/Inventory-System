@@ -70,6 +70,15 @@ main {
 .--bars {
   display: none;
 }
+.li ._a_replaced.active {
+  /* background-color: #fff;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  color: var(--main-color);
+  border-radius: 30px 0px 0px 30px; */
+  background-color: rgba(0, 0, 0, 0.07);
+  color: black;
+}
 
 /*close on small screen*/
 .close-on-sm {
@@ -99,6 +108,12 @@ main {
 .main-content {
   margin-left: 180px;
   transition: margin-left 500ms;
+}
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #f0f0f0;
 }
 
 @media only screen and (max-width: 768px) {

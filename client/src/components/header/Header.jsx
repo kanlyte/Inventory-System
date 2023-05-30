@@ -96,24 +96,17 @@ function Header() {
         anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
       >
         <MenuItem>
-          <Avatar /> Profile
-        </MenuItem>
-        <MenuItem>
           <Avatar /> My account
         </MenuItem>
         <Divider />
-        <MenuItem>
-          <ListItemIcon>
-            <PersonAdd fontSize="small" />
-          </ListItemIcon>
-          Add another account
-        </MenuItem>
-        <MenuItem>
-          <ListItemIcon>
-            <Settings fontSize="small" />
-          </ListItemIcon>
-          Settings
-        </MenuItem>
+        <Link to="/settings">
+          <MenuItem>
+            <ListItemIcon>
+              <Settings fontSize="small" />
+            </ListItemIcon>
+            Settings
+          </MenuItem>
+        </Link>
         <MenuItem>
           <ListItemIcon>
             <Logout fontSize="small" />

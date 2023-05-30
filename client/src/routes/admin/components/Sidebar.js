@@ -21,19 +21,19 @@ function SideBar(props) {
           </label>
         </div>
         <div className="li">
-          <Link to="/products">
+          <Link to="/allproducts">
             <span
               className={`${
-                props.active === "products" ? "active" : ""
+                props.active === "allproducts" ? "active" : ""
               } _a_replaced`}
             >
               <SideBarList Icon={<Product />} title="Products" />
             </span>
           </Link>
-          <Link to="/newsale">
+          <Link to="/sales">
             <span
               className={`${
-                props.active === "newsale" ? "active" : ""
+                props.active === "sales" ? "active" : ""
               } _a_replaced`}
             >
               <SideBarList
@@ -48,14 +48,14 @@ function SideBar(props) {
                     <path d="M4 6h18V4H4c-1.1 0-2 .9-2 2v11H0v3h14v-3H4V6zm19 2h-6c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h6c.55 0 1-.45 1-1V9c0-.55-.45-1-1-1zm-1 9h-4v-7h4v7z"></path>
                   </svg>
                 }
-                title="New Sale"
+                title="Sales"
               />
             </span>
           </Link>
-          <Link to="/">
+          <Link to="/allusers">
             <span
               className={`${
-                props.active === "dashboard" ? "active" : ""
+                props.active === "allusers" ? "active" : ""
               } _a_replaced`}
             >
               <SideBarList
@@ -75,7 +75,7 @@ function SideBar(props) {
                     ></path>
                   </svg>
                 }
-                title="Sales"
+                title="Users"
               />
             </span>
           </Link>
@@ -85,7 +85,7 @@ function SideBar(props) {
                 props.active === "dashboard" ? "active" : ""
               } _a_replaced`}
             >
-              <SideBarList Icon={<PeopleAltIcon />} title="Users" />
+              <SideBarList Icon={<PeopleAltIcon />} title="Profits" />
             </span>
           </Link>
           <Link to="/">
