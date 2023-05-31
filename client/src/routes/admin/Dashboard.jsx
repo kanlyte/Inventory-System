@@ -3,14 +3,14 @@ import "../Design/Home.css";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Header from "../../components/header/Header";
-import SideBar from "../../components/SideBar";
+import Sidebar from "./components/Sidebar";
 
 const Dashboard = () => {
   return (
     <>
       <Header />
       <input type="checkbox" id="nav-toggle" defaultChecked />
-      <SideBar />
+      <Sidebar />
       <div className="main-content">
         <main>
           <div className="cards">
