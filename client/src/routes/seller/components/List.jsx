@@ -6,6 +6,7 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import { styled } from "@mui/material/styles";
 import Profile from "./profile";
+import ChangePassword from "./ChangePassword";
 
 const StyledTabs = styled((props) => (
   <Tabs
@@ -91,7 +92,7 @@ export default function List() {
           aria-label="basic tabs example"
         >
           <StyledTab label="Profile" {...a11yProps(0)} />
-          <StyledTab label="Personal" {...a11yProps(1)} />
+          <StyledTab label="Personal Information" {...a11yProps(1)} />
           <StyledTab label="change password" {...a11yProps(2)} />
         </StyledTabs>
       </Box>
@@ -102,7 +103,7 @@ export default function List() {
         Item Two
       </TabPanel>
       <TabPanel value={value} index={2}>
-        Item Three
+        <ChangePassword />
       </TabPanel>
     </Box>
   );

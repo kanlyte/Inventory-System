@@ -65,6 +65,30 @@ function AddProductForm({ closeEvent }) {
             style={{ minWidth: "100%" }}
           />
         </Grid>
+        <Grid item xs={12}>
+          <TextField
+            variant="outlined"
+            label="Selling Price"
+            size="small"
+            sx={{ minWidth: "100%" }}
+          />
+        </Grid>
+        <Grid item xs={6}>
+          <TextField
+            variant="outlined"
+            label="Mfg Date"
+            size="small"
+            style={{ minWidth: "100%" }}
+          />
+        </Grid>
+        <Grid item xs={6}>
+          <TextField
+            variant="outlined"
+            label="Mfg Date"
+            size="small"
+            style={{ minWidth: "100%" }}
+          />
+        </Grid>
       </Grid>
       <Box sx={{ m: 4 }} />
     </>
