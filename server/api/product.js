@@ -132,7 +132,7 @@ router.get("/one/product/:id", async (req, res) => {
   try {
     const product = await Product.findById(req.params.id);
     if (product) {
-      const get_product = await Product.getOne({ _id: req.params.id });
+      const get_product = await Product.findById({ _id: req.params.id });
       res.send({
         status: true,
         data: "product ",

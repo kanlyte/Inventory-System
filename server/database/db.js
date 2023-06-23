@@ -11,7 +11,7 @@ const ConnectDB = () => {
       console.log("DB is running...");
     })
     .catch((err) => {
-      console.log(err, "something is wrong somewhere");
+      console.log(err, "something wrong in db connectivity");
     });
 };
 

@@ -112,7 +112,7 @@ router.get("/one/seller/:id", async (req, res) => {
   const seller = await Seller.findById(req.params.id);
   try {
     if (seller) {
-      const get_seller = await Seller.getOne({ _id: req.params.id });
+      const get_seller = await Seller.findById({ _id: req.params.id });
       res.send({
         status: true,
         data: "seller,",
