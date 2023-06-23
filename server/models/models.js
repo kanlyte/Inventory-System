@@ -16,6 +16,9 @@ const SellerSchema = new mongoose.Schema({
   seller_name: {
     type: String,
   },
+  seller_email: {
+    type: String,
+  },
   seller_phone: {
     type: String,
   },
