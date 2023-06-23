@@ -127,4 +127,26 @@ router.put("/update/product/:id", async (req, res) => {
   }
 });
 
+//getting one product
+router.get("/one/product/:id", async (req, res) => {
+  try {
+    const product = await Product.findById(req.params.id);
+    if (product) {
+      const get_product = await Product.getOne({ _id: req.params.id });
+      res.send({
+        status: true,
+        data: "product ",
+        result: get_product,
+      });
+    } else {
+      res.send({
+        status: true,
+        data: "product not found",
+      });
+    }
+  } catch (error) {
+    res.send({ status: false, data: "An Error Occured", result: error });
+  }
+});
+
 module.exports = router;

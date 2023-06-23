@@ -105,4 +105,27 @@ router.get("/all/seller", async (req, res) => {
   }
 });
 
+//getting one seller
+
+router.get("/one/seller/:id", async (req, res) => {
+  const seller = await Seller.findById(req.params.id);
+  try {
+    if (seller) {
+      const get_seller = await Seller.getOne({ _id: req.params.id });
+      res.send({
+        status: true,
+        data: "seller,",
+        result: get_seller,
+      });
+    } else {
+      res.send({
+        status: true,
+        data: "seller not Found",
+      });
+    }
+  } catch (error) {
+    res.send({ status: false, data: "An Error Occured", result: error });
+  }
+});
+
 module.exports = router;
