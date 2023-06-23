@@ -15,6 +15,7 @@ router.post("/new/seller", async (req, res) => {
   } else {
     const seller = new Seller({
       seller_name: req.body.seller_name,
+      seller_email: req.body.seller_email,
       seller_phone: req.body.seller_phone,
       seller_password: req.body.seller_password,
     });

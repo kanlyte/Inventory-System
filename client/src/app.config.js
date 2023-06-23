@@ -1,10 +1,9 @@
 import { Base64 } from "js-base64";
-const session_token = sessionStorage.getItem("token");
-const stored_token = localStorage.getItem("token");
+const token_session = sessionStorage.getItem("value");
+const token_stored = localStorage.getItem("value");
 
-const token = session_token ? session_token : stored_token;
+const token = token_session ? token_session : token_stored;
 
-const user = token ? JSON.parse(Base64.decode(token)) : null;
+const user = token ? JSON.parse(Base64.decode(token)) : {};
 
 export default user;
-

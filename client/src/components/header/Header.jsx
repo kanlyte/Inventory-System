@@ -12,8 +12,10 @@ import SearchIcon from "@mui/icons-material/Search";
 import { Link } from "react-router-dom";
 import { Logout, PersonAdd, Settings } from "@mui/icons-material";
 import logo from "../../assets/logo.jpeg";
+import { useSnackbar } from "notistack";
 
 function Header() {
+  const { enqueueSnackbar } = useSnackbar();
   const [AnchorEl, setAnchorEl] = useState(null);
   const [open, setOpen] = useState(false);
   const handleOpenActions = (e) => {
@@ -107,7 +109,22 @@ function Header() {
             Settings
           </MenuItem>
         </Link>
-        <MenuItem>
+        <MenuItem
+          onClick={() => {
+            const token_stored = localStorage.getItem("value");
+            if (token_stored) {
+              localStorage.removeItem("value");
+            } else {
+              sessionStorage.removeItem("value");
+              enqueueSnackbar("Logout Successfull", {
+                variant: "success",
+              });
+            }
+            setTimeout(() => {
+              window.location.replace("/");
+            }, 6000);
+          }}
+        >
           <ListItemIcon>
             <Logout fontSize="small" />
           </ListItemIcon>
