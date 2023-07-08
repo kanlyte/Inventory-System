@@ -63,6 +63,7 @@ router.put("/update/seller/:id", async (req, res) => {
         {
           $set: {
             seller_name: req.body.seller_name || update_Seller.seller_name,
+            seller_email: req.body.seller_email || update_Seller.seller_email,
             seller_phone: req.body.seller_phone || update_Seller.seller_phone,
             seller_password:
               req.body.seller_password || update_Seller.seller_password,
@@ -112,11 +113,10 @@ router.get("/one/seller/:id", async (req, res) => {
   const seller = await Seller.findById(req.params.id);
   try {
     if (seller) {
-      const get_seller = await Seller.getOne({ _id: req.params.id });
       res.send({
         status: true,
         data: "seller,",
-        result: get_seller,
+        result: seller,
       });
     } else {
       res.send({

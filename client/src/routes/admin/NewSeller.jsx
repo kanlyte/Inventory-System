@@ -23,6 +23,7 @@ import { Autocomplete, TextField } from "@mui/material";
 import AddSellerForm from "./AddSellerForm";
 import FormsApi from "../../api/api";
 import { useSnackbar } from "notistack";
+import moment from "moment";
 import EditSellerForm from "./EditSellerForm";
 
 function NewSeller() {
@@ -30,6 +31,7 @@ function NewSeller() {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(5);
   const [editopen, setEditOpen] = useState(false);
+  const [formid, setFormid] = useState("");
   const [open, setOpen] = useState(false);
   const [state, setState] = useState({
     sellers: [],
@@ -87,7 +89,11 @@ function NewSeller() {
       });
     }
   };
-  const editUserHandler = () => {
+  const editUserHandler = (id) => {
+    const data = {
+      id: id,
+    };
+    setFormid(data);
     handleEditOpen();
   };
 
@@ -183,7 +189,12 @@ function NewSeller() {
                             <TableCell align="left">{v.seller_name}</TableCell>
                             <TableCell align="left">{v.seller_email}</TableCell>
                             <TableCell align="left">{v.seller_phone}</TableCell>
-                            <TableCell align="left">{v.seller_name}</TableCell>
+                            <TableCell align="left">
+                              {" "}
+                              {moment(new Date(v.seller_date))
+                                .startOf("day")
+                                .fromNow()}
+                            </TableCell>
                             <TableCell align="left">
                               <Stack spacing={2} direction="row">
                                 <EditIcon
@@ -193,7 +204,7 @@ function NewSeller() {
                                     cursor: "pointer",
                                   }}
                                   className="cursor-pointer"
-                                  onClick={() => editUserHandler()}
+                                  onClick={() => editUserHandler(v.id)}
                                 />
                                 <DeleteIcon
                                   style={{
@@ -244,7 +255,7 @@ function NewSeller() {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <EditSellerForm closeEvent={handleEditClose} />
+          <EditSellerForm closeEvent={handleEditClose} fid={formid} />
         </Box>
       </Modal>
     </>
