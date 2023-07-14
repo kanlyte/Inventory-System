@@ -16,7 +16,7 @@ server.get("/", (req, res) => {
 server.use("/api/", require("./api/seller"));
 server.use("/api/", require("./api/product"));
 server.use("/api/", require("./api/auth"));
-
+server.use("/api", require("./api/sellingUnit"));
 //db connect
 db();
 server.listen(port, () => {

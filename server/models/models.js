@@ -79,7 +79,17 @@ const ProductSchema = new mongoose.Schema({
 id(ProductSchema);
 const Product = new mongoose.model("products", ProductSchema);
 
+//selling unit model
+const SellingUnitSchema = new mongoose.Schema({
+  unit_name: {
+    type: String,
+  },
+});
+id(SellingUnitSchema);
+const Selling_unit = new mongoose.model("selling_unit", SellingUnitSchema);
+
 module.exports = {
   Seller,
   Product,
+  Selling_unit,
 };
