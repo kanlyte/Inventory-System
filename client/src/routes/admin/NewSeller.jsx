@@ -124,13 +124,17 @@ function NewSeller() {
             </Typography>
             <Divider />
             <Box height={10} />
-            <Stack direction="row" spacing={2} className="my-2 mb-2">
+             <Stack direction="row" spacing={2} className="my-2 mb-2">
               <Autocomplete
-                sx={{ width: 300 }}
+                disablePortal
                 id="combo-box-demo"
-                disablePorta
+                // options={rows}
+                sx={{ width: 300 }}
+                // onChange={(e, v) => filterData(v)}
+                // getOptionLabel={(rows) => rows.name || ""}
                 renderInput={(params) => (
                   <TextField
+                    {...params}
                     label="Search Sellers"
                     variant="outlined"
                     size="small"
@@ -138,16 +142,14 @@ function NewSeller() {
                 )}
               />
               <Typography
-                sx={{ flexGrow: 1 }}
                 variant="h6"
                 component="div"
+                sx={{ flexGrow: 1 }}
               ></Typography>
               <Button
-                endIcon={<AddCircleIcon />}
                 variant="contained"
-                color="primary"
+                endIcon={<AddCircleIcon />}
                 onClick={handleOpen}
-                size="small"
               >
                 Add Seller
               </Button>

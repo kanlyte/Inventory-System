@@ -31,6 +31,12 @@
 .card-single:last-child div:first-child span {
   color: #fff;
 }
+.recent-grid-ctr {
+  margin-top: 1rem;
+  display: grid;
+  grid-gap: 2rem;
+  grid-template-columns: 50% auto;
+}
 
 @media only screen and (max-width: 768px) {
   .cards {

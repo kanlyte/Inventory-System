@@ -11,66 +11,21 @@ import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 import Autocomplete from "@mui/material/Autocomplete";
-// import { makeStyles } from "tss-react/mui";
 import "../Design/products.css";
 import {
   Box,
   Button,
   Divider,
+  FormControl,
+  InputLabel,
+  MenuItem,
   Modal,
+  Select,
   Stack,
   TextField,
   Typography,
 } from "@mui/material";
 import AddProductForm from "./AddProductForm";
-const columns = [
-  { id: "name", label: "Name", minWidth: 170 },
-  { id: "code", label: "ISO\u00a0Code", minWidth: 100 },
-  {
-    id: "population",
-    label: "Population",
-    minWidth: 170,
-    align: "right",
-    format: (value) => value.toLocaleString("en-US"),
-  },
-  {
-    id: "size",
-    label: "Size\u00a0(km\u00b2)",
-    minWidth: 170,
-    align: "right",
-    format: (value) => value.toLocaleString("en-US"),
-  },
-  {
-    id: "density",
-    label: "Density",
-    minWidth: 170,
-    align: "right",
-    format: (value) => value.toFixed(2),
-  },
-];
-
-function createData(name, code, population, size) {
-  const density = population / size;
-  return { name, code, population, size, density };
-}
-
-const rows = [
-  createData("India", "IN", 1324171354, 3287263),
-  createData("China", "CN", 1403500365, 9596961),
-  createData("Italy", "IT", 60483973, 301340),
-  createData("United States", "US", 327167434, 9833520),
-  createData("Canada", "CA", 37602103, 9984670),
-  createData("Australia", "AU", 25475400, 7692024),
-  createData("Germany", "DE", 83019200, 357578),
-  createData("Ireland", "IE", 4857000, 70273),
-  createData("Mexico", "MX", 126577691, 1972550),
-  createData("Japan", "JP", 126317000, 377973),
-  createData("France", "FR", 67022000, 640679),
-  createData("United Kingdom", "GB", 67545757, 242495),
-  createData("Russia", "RU", 146793744, 17098246),
-  createData("Nigeria", "NG", 200962417, 923768),
-  createData("Brazil", "BR", 210147125, 8515767),
-];
 function Products() {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(5);
@@ -104,106 +59,160 @@ function Products() {
       <SideBar active="products" />
       <div className="main-content">
         <main>
-          <Paper sx={{ width: "98%", overflow: "hidden", padding: "12px" }}>
-            <Typography
-              gutterBottom
-              variant="h5"
-              component="div"
-              sx={{ padding: "20px" }}
-            >
-              Products
-            </Typography>
-            <Divider />
-            <Box height={10} />
-            <Stack direction="row" spacing={2} className="my-2 mb-2">
-              <Autocomplete
-                disablePortal
-                id="combo-box-demo"
-                options={rows}
-                sx={{ width: 300 }}
-                // onChange={(e, v) => filterData(v)}
-                // getOptionLabel={(rows) => rows.name || ""}
-                renderInput={(params) => (
-                  <TextField
-                    {...params}
-                    label="Search Products"
-                    variant="outlined"
-                    size="small"
-                  />
-                )}
-              />
+          <div className="recent-grid-left">
+            <Paper sx={{ width: "98%", overflow: "hidden", padding: "12px" }}>
               <Typography
-                variant="h6"
+                gutterBottom
+                variant="h5"
                 component="div"
-                sx={{ flexGrow: 1 }}
-              ></Typography>
-              <Button
-                variant="contained"
-                endIcon={<AddCircleIcon />}
-                onClick={handleOpen}
+                sx={{ padding: "20px" }}
               >
-                Add Product
-              </Button>
-            </Stack>
-            <Box height={10} />
-            <TableContainer sx={{ maxHeight: 440 }}>
-              <Table stickyHeader aria-label="sticky table">
-                <TableHead>
-                  <TableRow>
-                    <TableCell align="left" style={{ minWidth: "100px" }}>
-                      Product Name
-                    </TableCell>
-                    <TableCell align="left" style={{ minWidth: "100px" }}>
-                      Price
-                    </TableCell>
-                    <TableCell align="left" style={{ minWidth: "100px" }}>
-                      Category
-                    </TableCell>
-                    <TableCell align="left" style={{ minWidth: "100px" }}>
-                      Date
-                    </TableCell>
-                    <TableCell align="left" style={{ minWidth: "100px" }}>
-                      Action
-                    </TableCell>
-                  </TableRow>
-                </TableHead>
-                <TableBody>
-                  {rows
-                    .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                    .map((row) => {
-                      return (
-                        <TableRow
-                          hover
-                          role="checkbox"
-                          tabIndex={-1}
-                          key={row.code}
-                        >
-                          {columns.map((column) => {
-                            const value = row[column.id];
-                            return (
-                              <TableCell key={column.id} align={column.align}>
-                                {column.format && typeof value === "number"
-                                  ? column.format(value)
-                                  : value}
-                              </TableCell>
-                            );
-                          })}
-                        </TableRow>
-                      );
-                    })}
-                </TableBody>
-              </Table>
-            </TableContainer>
-            <TablePagination
-              rowsPerPageOptions={[5, 10, 20]}
-              component="div"
-              count={rows.length}
-              rowsPerPage={rowsPerPage}
-              page={page}
-              onPageChange={handleChangePage}
-              onRowsPerPageChange={handleChangeRowsPerPage}
-            />
-          </Paper>
+                Products in stock
+              </Typography>
+              <Divider />
+              <Box height={10} />
+              <Stack direction="row" spacing={2} className="my-2 mb-2">
+                <Autocomplete
+                  disablePortal
+                  id="combo-box-demo"
+                  // options={rows}
+                  sx={{ width: 300 }}
+                  // onChange={(e, v) => filterData(v)}
+                  // getOptionLabel={(rows) => rows.name || ""}
+                  renderInput={(params) => (
+                    <TextField
+                      {...params}
+                      label="Search Products"
+                      variant="outlined"
+                      size="small"
+                    />
+                  )}
+                />
+                <Typography
+                  variant="h6"
+                  component="div"
+                  sx={{ flexGrow: 1 }}
+                ></Typography>
+                <Button
+                  variant="contained"
+                  endIcon={<AddCircleIcon />}
+                  onClick={handleOpen}
+                >
+                  Add Product
+                </Button>
+              </Stack>
+              <Box height={10} />
+              <TablePagination
+                rowsPerPageOptions={[5, 10, 20]}
+                component="div"
+                // count={rows.length}
+                rowsPerPage={rowsPerPage}
+                page={page}
+                onPageChange={handleChangePage}
+                onRowsPerPageChange={handleChangeRowsPerPage}
+              />
+            </Paper>
+            <div className="projects">
+              <form className="card" autoComplete="off">
+                <div className="card-header card-header-payments">
+                  <h3 className="class_payment_header">New Purchase</h3>
+                  <div className="">
+                    <Button
+                      type="submit"
+                      variant="contained"
+                      color="primary"
+                      size="small"
+                    >
+                      <span style={{ fontSize: "17.5px", marginRight: "10px" }}>
+                        <i className="las la-plus-circle"></i>
+                      </span>
+                      Add
+                    </Button>
+                  </div>
+                </div>
+                <div className="card-body">
+                  <div>
+                    <div className="inputCtr">
+                      <h4>Product Details</h4>
+                      <div className="inputs_ctr">
+                        <div className="inpts_on_left">
+                          <Autocomplete
+                            id="combo-box-demo"
+                            renderInput={(params) => (
+                              <TextField
+                                {...params}
+                                label="Search Product"
+                                name="product_name"
+                                variant="outlined"
+                              />
+                            )}
+                          />
+                          <TextField
+                            type="date"
+                            name="expiry_date"
+                            helperText="Expiry Date"
+                            variant="outlined"
+                            style={{ width: "85%", margin: "20px" }}
+                          />
+                          <FormControl
+                            variant="outlined"
+                            label="supplier"
+                            style={{ width: "85%", margin: "20px" }}
+                          >
+                            <InputLabel id="supplier">Supplier</InputLabel>
+                            <Select
+                              inputProps={{ name: "supplier" }}
+                              id="select_supplier"
+                              defaultValue=""
+                              label="supplier"
+                            >
+                              <MenuItem>Kanlyte LTD</MenuItem>
+                            </Select>
+                          </FormControl>
+                        </div>
+                        <div className="inpts_on_right">
+                          <FormControl
+                            label="selling_unit"
+                            variant="outlined"
+                            style={{ width: "85%", margin: "20px" }}
+                          >
+                            <InputLabel id="selling_unit">
+                              Purchasing unit
+                            </InputLabel>
+                            <Select
+                              inputProps={{ name: "supplier" }}
+                              id="selling_unit"
+                              defaultValue=""
+                              label="Purchasing Unit"
+                            >
+                              <MenuItem>Boxes</MenuItem>
+                            </Select>
+                          </FormControl>
+                          <TextField
+                            name="qty"
+                            type="number"
+                            variant="outlined"
+                            label="Quantity"
+                            color="primary"
+                            style={{ width: "85%", margin: "20px" }}
+                          />
+                          <TextField
+                            type="number"
+                            variant="outlined"
+                            name="cost_price"
+                            defaultValue={0}
+                            label="Unit Cost Price(Ushs)"
+                            color="primary"
+                            style={{ width: "85%", margin: "20px" }}
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
         </main>
       </div>
 

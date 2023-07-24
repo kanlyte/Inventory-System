@@ -7,12 +7,8 @@ router.post("/new/unit", async (req, res) => {
   const unit_check = await Selling_unit.findOne({
     unit_name: { $eq: req.body.unit_name },
   });
-
   if (unit_check) {
-    res.send({
-      data: "unit exists",
-      status: false,
-    });
+    res.send({ data: "unit exists", status: false });
   } else {
     const unit = new Selling_unit({
       unit_name: req.body.unit_name,
@@ -21,7 +17,7 @@ router.post("/new/unit", async (req, res) => {
       const save_unit = await unit.save();
       res.send({
         status: true,
-        data: "selling units",
+        data: "Unit saved successfully",
         result: save_unit,
       });
     } catch (error) {

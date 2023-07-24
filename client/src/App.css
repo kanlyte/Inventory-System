@@ -30,7 +30,7 @@
 }
 body {
   font-family: var(--font-family);
-  background: #eee;
+  background-color: #f1f5f9;
   font-size: 14px;
 }
 a {
@@ -114,6 +114,59 @@ main {
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid #f0f0f0;
+}
+.card-header,
+.card-body {
+  padding: 1rem;
+}
+.card-body table tr td {
+  padding: 15px;
+}
+
+table {
+  border-collapse: collapse;
+}
+thead tr {
+  border-top: 1px solid #f0f0f0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+thead tr {
+  border-top: 1px solid #c8c6c6;
+  border-bottom: 1px solid #c8c6c6;
+}
+thead td {
+  font-weight: 700;
+}
+
+.tr-border > tr {
+  border-bottom: 1px solid #bfbdbd;
+}
+td {
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  color: #222;
+  white-space: nowrap;
+}
+
+/*-------New stock styles------------*/
+.form-header-ctr {
+  width: 95%;
+  margin: 10px auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.inputCtr {
+  width: 95%;
+  margin: auto;
+}
+.recent-grid-left {
+  margin-top: 1rem;
+  display: grid;
+  grid-gap: 2rem;
+  grid-template-columns: 60% auto;
 }
 
 @media only screen and (max-width: 768px) {

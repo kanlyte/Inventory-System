@@ -1,6 +1,5 @@
 import React, { Fragment, useEffect, useState } from "react";
 import Header from "../../components/header/Header";
-import SideBar from "./components/Sidebar";
 import {
   Button,
   IconButton,
@@ -19,6 +18,7 @@ import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import Snackbar from "@mui/material/Snackbar";
 import "..//Design/products.css";
+import SideBar from "../../components/SideBar";
 import FormsApi from "../../api/api";
 
 function Alert(props) {

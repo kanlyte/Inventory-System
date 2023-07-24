@@ -21,15 +21,6 @@ function SideBar(props) {
           </label>
         </div>
         <div className="li">
-          <Link to="/products">
-            <span
-              className={`${
-                props.active === "products" ? "active" : ""
-              } _a_replaced`}
-            >
-              <SideBarList Icon={<Product />} title="Products" />
-            </span>
-          </Link>
           <Link to="/newsale">
             <span
               className={`${
@@ -52,40 +43,26 @@ function SideBar(props) {
               />
             </span>
           </Link>
-          <Link to="/">
+          <Link to="/new-purchase">
             <span
               className={`${
-                props.active === "dashboard" ? "active" : ""
+                props.active === "new-purchase" ? "active" : ""
               } _a_replaced`}
             >
               <SideBarList
                 Icon={
                   <svg
                     class=""
-                    width="24px"
-                    height="24px"
                     viewBox="0 0 24 24"
-                    fill="#000000"
+                    fill="inherit"
                     focusable="false"
                   >
                     <path d="M0 0h24v24H0z" fill="none"></path>
-                    <path
-                      xmlns="http://www.w3.org/2000/svg"
-                      d="M15 8c0-1.42-.5-2.73-1.33-3.76.42-.14.86-.24 1.33-.24 2.21 0 4 1.79 4 4s-1.79 4-4 4c-.43 0-.84-.09-1.23-.21-.03-.01-.06-.02-.1-.03A5.98 5.98 0 0 0 15 8zm1.66 5.13C18.03 14.06 19 15.32 19 17v3h4v-3c0-2.18-3.58-3.47-6.34-3.87zM9 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2m0 9c-2.7 0-5.8 1.29-6 2.01V18h12v-1c-.2-.71-3.3-2-6-2M9 4c2.21 0 4 1.79 4 4s-1.79 4-4 4-4-1.79-4-4 1.79-4 4-4zm0 9c2.67 0 8 1.34 8 4v3H1v-3c0-2.66 5.33-4 8-4z"
-                    ></path>
+                    <path d="M4 6h18V4H4c-1.1 0-2 .9-2 2v11H0v3h14v-3H4V6zm19 2h-6c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h6c.55 0 1-.45 1-1V9c0-.55-.45-1-1-1zm-1 9h-4v-7h4v7z"></path>
                   </svg>
                 }
-                title="Sales"
+                title="New Purchase"
               />
-            </span>
-          </Link>
-          <Link to="/">
-            <span
-              className={`${
-                props.active === "dashboard" ? "active" : ""
-              } _a_replaced`}
-            >
-              <SideBarList Icon={<PeopleAltIcon />} title="Users" />
             </span>
           </Link>
           <Link to="/">
