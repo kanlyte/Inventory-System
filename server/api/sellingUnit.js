@@ -31,7 +31,17 @@ router.get("/one/unit/:id", async (req, res) => {
   try {
     const unit = await Selling_unit.findById(req.params.id);
     if (unit) {
-      const unit = await unit.findById({ _id: req.params.id });
+      const my_unit = await Selling_unit.findById({ _id: req.params.id });
+      res.send({
+        data: "unit exists",
+        status: true,
+        result: my_unit,
+      });
+    } else {
+      res.send({
+        data: "not unit found",
+        status: false,
+      });
     }
   } catch (error) {
     res.send({ status: false, data: "An Error Occured", result: error });
