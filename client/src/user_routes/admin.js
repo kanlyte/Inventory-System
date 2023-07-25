@@ -10,6 +10,8 @@ import NewPurchase from "../routes/admin/NewPurchase";
 import NewSupplier from "../routes/admin/NewSupplier";
 import NewSale from "../routes/admin/NewSale";
 import FinanceSummary from "../routes/admin/FinaceSummary";
+import AllSales from "../routes/admin/allSales";
+import AllPurchases from "../routes/admin/allPurchases";
 
 function Admin() {
   return (
@@ -20,6 +22,8 @@ function Admin() {
         <Route path="/allproducts" element={<Products />} />
         <Route path="/allusers" element={<NewSeller />} />
         <Route path="/new-sales" element={<NewSale />} />
+        <Route path="/all-sales" element={<AllSales />} />
+        <Route path="/all-purchases" element={<AllPurchases />} />
         <Route path="/finace-summary" element={<FinanceSummary />} />
         <Route path="/new-product" element={<NewProduct />} />
         <Route path="/new-purchase" element={<NewPurchase />} />
